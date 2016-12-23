@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sf.sgs.mapper.thunderOrderMapper">
+  <resultMap id="BaseResultMap" type="com.sf.sgs.domain.thunderOrder">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="customer_id" jdbcType="BIGINT" property="customerId" />
+    <result column="courier_id" jdbcType="BIGINT" property="courierId" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="start_lng" jdbcType="VARCHAR" property="startLng" />
+    <result column="start_lat" jdbcType="VARCHAR" property="startLat" />
+    <result column="finished_lng" jdbcType="VARCHAR" property="finishedLng" />
+    <result column="finished__lat" jdbcType="VARCHAR" property="finishedLat" />
+    <result column="source_address" jdbcType="VARCHAR" property="sourceAddress" />
+    <result column="dest_address" jdbcType="VARCHAR" property="destAddress" />
+    <result column="order_type" jdbcType="TINYINT" property="orderType" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="weight" jdbcType="INTEGER" property="weight" />
+    <result column="volume" jdbcType="VARCHAR" property="volume" />
+    <result column="expected_arrival_time" jdbcType="TIMESTAMP" property="expectedArrivalTime" />
+    <result column="order_status" jdbcType="TINYINT" property="orderStatus" />
+    <result column="started_time" jdbcType="TIMESTAMP" property="startedTime" />
+    <result column="finshed_time" jdbcType="TIMESTAMP" property="finshedTime" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, customer_id, courier_id, amount, start_lng, start_lat, finished_lng, finished__lat, 
+    source_address, dest_address, order_type, remark, weight, volume, expected_arrival_time, 
+    order_status, started_time, finshed_time, created_time, update_time
+  </sql>
+  <select id="selectByExample" parameterType="com.sf.sgs.domain.thunderOrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from thunder_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from thunder_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from thunder_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sf.sgs.domain.thunderOrderExample">
+    delete from thunder_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sf.sgs.domain.thunderOrder">
+    insert into thunder_order (id, customer_id, courier_id, 
+      amount, start_lng, start_lat, 
+      finished_lng, finished__lat, source_address, 
+      dest_address, order_type, remark, 
+      weight, volume, expected_arrival_time, 
+      order_status, started_time, finshed_time, 
+      created_time, update_time)
+    values (#{id,jdbcType=BIGINT}, #{customerId,jdbcType=BIGINT}, #{courierId,jdbcType=BIGINT}, 
+      #{amount,jdbcType=INTEGER}, #{startLng,jdbcType=VARCHAR}, #{startLat,jdbcType=VARCHAR}, 
+      #{finishedLng,jdbcType=VARCHAR}, #{finishedLat,jdbcType=VARCHAR}, #{sourceAddress,jdbcType=VARCHAR}, 
+      #{destAddress,jdbcType=VARCHAR}, #{orderType,jdbcType=TINYINT}, #{remark,jdbcType=VARCHAR}, 
+      #{weight,jdbcType=INTEGER}, #{volume,jdbcType=VARCHAR}, #{expectedArrivalTime,jdbcType=TIMESTAMP}, 
+      #{orderStatus,jdbcType=TINYINT}, #{startedTime,jdbcType=TIMESTAMP}, #{finshedTime,jdbcType=TIMESTAMP}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sf.sgs.domain.thunderOrder">
+    insert into thunder_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="courierId != null">
+        courier_id,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="startLng != null">
+        start_lng,
+      </if>
+      <if test="startLat != null">
+        start_lat,
+      </if>
+      <if test="finishedLng != null">
+        finished_lng,
+      </if>
+      <if test="finishedLat != null">
+        finished__lat,
+      </if>
+      <if test="sourceAddress != null">
+        source_address,
+      </if>
+      <if test="destAddress != null">
+        dest_address,
+      </if>
+      <if test="orderType != null">
+        order_type,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="volume != null">
+        volume,
+      </if>
+      <if test="expectedArrivalTime != null">
+        expected_arrival_time,
+      </if>
+      <if test="orderStatus != null">
+        order_status,
+      </if>
+      <if test="startedTime != null">
+        started_time,
+      </if>
+      <if test="finshedTime != null">
+        finshed_time,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="courierId != null">
+        #{courierId,jdbcType=BIGINT},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="startLng != null">
+        #{startLng,jdbcType=VARCHAR},
+      </if>
+      <if test="startLat != null">
+        #{startLat,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedLng != null">
+        #{finishedLng,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedLat != null">
+        #{finishedLat,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceAddress != null">
+        #{sourceAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="destAddress != null">
+        #{destAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="volume != null">
+        #{volume,jdbcType=VARCHAR},
+      </if>
+      <if test="expectedArrivalTime != null">
+        #{expectedArrivalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=TINYINT},
+      </if>
+      <if test="startedTime != null">
+        #{startedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finshedTime != null">
+        #{finshedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sf.sgs.domain.thunderOrderExample" resultType="java.lang.Integer">
+    select count(*) from thunder_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update thunder_order
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.customerId != null">
+        customer_id = #{record.customerId,jdbcType=BIGINT},
+      </if>
+      <if test="record.courierId != null">
+        courier_id = #{record.courierId,jdbcType=BIGINT},
+      </if>
+      <if test="record.amount != null">
+        amount = #{record.amount,jdbcType=INTEGER},
+      </if>
+      <if test="record.startLng != null">
+        start_lng = #{record.startLng,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startLat != null">
+        start_lat = #{record.startLat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedLng != null">
+        finished_lng = #{record.finishedLng,jdbcType=VARCHAR},
+      </if>
+      <if test="record.finishedLat != null">
+        finished__lat = #{record.finishedLat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sourceAddress != null">
+        source_address = #{record.sourceAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.destAddress != null">
+        dest_address = #{record.destAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderType != null">
+        order_type = #{record.orderType,jdbcType=TINYINT},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weight != null">
+        weight = #{record.weight,jdbcType=INTEGER},
+      </if>
+      <if test="record.volume != null">
+        volume = #{record.volume,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expectedArrivalTime != null">
+        expected_arrival_time = #{record.expectedArrivalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.orderStatus != null">
+        order_status = #{record.orderStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.startedTime != null">
+        started_time = #{record.startedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.finshedTime != null">
+        finshed_time = #{record.finshedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createdTime != null">
+        created_time = #{record.createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update thunder_order
+    set id = #{record.id,jdbcType=BIGINT},
+      customer_id = #{record.customerId,jdbcType=BIGINT},
+      courier_id = #{record.courierId,jdbcType=BIGINT},
+      amount = #{record.amount,jdbcType=INTEGER},
+      start_lng = #{record.startLng,jdbcType=VARCHAR},
+      start_lat = #{record.startLat,jdbcType=VARCHAR},
+      finished_lng = #{record.finishedLng,jdbcType=VARCHAR},
+      finished__lat = #{record.finishedLat,jdbcType=VARCHAR},
+      source_address = #{record.sourceAddress,jdbcType=VARCHAR},
+      dest_address = #{record.destAddress,jdbcType=VARCHAR},
+      order_type = #{record.orderType,jdbcType=TINYINT},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      weight = #{record.weight,jdbcType=INTEGER},
+      volume = #{record.volume,jdbcType=VARCHAR},
+      expected_arrival_time = #{record.expectedArrivalTime,jdbcType=TIMESTAMP},
+      order_status = #{record.orderStatus,jdbcType=TINYINT},
+      started_time = #{record.startedTime,jdbcType=TIMESTAMP},
+      finshed_time = #{record.finshedTime,jdbcType=TIMESTAMP},
+      created_time = #{record.createdTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sf.sgs.domain.thunderOrder">
+    update thunder_order
+    <set>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="courierId != null">
+        courier_id = #{courierId,jdbcType=BIGINT},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="startLng != null">
+        start_lng = #{startLng,jdbcType=VARCHAR},
+      </if>
+      <if test="startLat != null">
+        start_lat = #{startLat,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedLng != null">
+        finished_lng = #{finishedLng,jdbcType=VARCHAR},
+      </if>
+      <if test="finishedLat != null">
+        finished__lat = #{finishedLat,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceAddress != null">
+        source_address = #{sourceAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="destAddress != null">
+        dest_address = #{destAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null">
+        order_type = #{orderType,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="volume != null">
+        volume = #{volume,jdbcType=VARCHAR},
+      </if>
+      <if test="expectedArrivalTime != null">
+        expected_arrival_time = #{expectedArrivalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderStatus != null">
+        order_status = #{orderStatus,jdbcType=TINYINT},
+      </if>
+      <if test="startedTime != null">
+        started_time = #{startedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finshedTime != null">
+        finshed_time = #{finshedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sf.sgs.domain.thunderOrder">
+    update thunder_order
+    set customer_id = #{customerId,jdbcType=BIGINT},
+      courier_id = #{courierId,jdbcType=BIGINT},
+      amount = #{amount,jdbcType=INTEGER},
+      start_lng = #{startLng,jdbcType=VARCHAR},
+      start_lat = #{startLat,jdbcType=VARCHAR},
+      finished_lng = #{finishedLng,jdbcType=VARCHAR},
+      finished__lat = #{finishedLat,jdbcType=VARCHAR},
+      source_address = #{sourceAddress,jdbcType=VARCHAR},
+      dest_address = #{destAddress,jdbcType=VARCHAR},
+      order_type = #{orderType,jdbcType=TINYINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=INTEGER},
+      volume = #{volume,jdbcType=VARCHAR},
+      expected_arrival_time = #{expectedArrivalTime,jdbcType=TIMESTAMP},
+      order_status = #{orderStatus,jdbcType=TINYINT},
+      started_time = #{startedTime,jdbcType=TIMESTAMP},
+      finshed_time = #{finshedTime,jdbcType=TIMESTAMP},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -6,22 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.sf.sgs.domain.App;
-import com.sf.sgs.domain.AppExample;
-import com.sf.sgs.manager.AppManager;
-import com.sf.sgs.service.AppService;
+import com.sf.sgs.domain.customerLoginLog;
+import com.sf.sgs.domain.customerLoginLogExample;
+import com.sf.sgs.manager.customerLoginLogManager;
+import com.sf.sgs.service.customerLoginLogService;
 /**
- * appService实现类
+ * customerLoginLogService实现类
  *
  * @author 594829
 */
 @Service
-public class AppServiceImpl implements AppService {
+public class customerLoginLogServiceImpl implements customerLoginLogService {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 			
 	@Autowired
-	AppManager appManager;
+	customerLoginLogManager customerLoginLogManager;
 	
 	/**
 	 * 按条件计数
@@ -31,10 +31,10 @@ public class AppServiceImpl implements AppService {
 	 * @return Integer 记录总数
 	 *
     */
-	public Integer countByExample(AppExample example) {
+	public Integer countByExample(customerLoginLogExample example) {
 		int count = 0;
 		try{
-			count = appManager.countByExample(example);
+			count = customerLoginLogManager.countByExample(example);
 		}
 		catch(Exception e){
 			logger.error("countByExample error", e);
@@ -45,18 +45,18 @@ public class AppServiceImpl implements AppService {
 	/**
 	 * 按主键删除
 	 * 
-	 * @param appId 唯一的ID（没有啥意义，主键，自增长而已）
+	 * @param id 
 	 * 
 	 * @return Integer 成功条数  
 	 *
     */
-    public Integer deleteByPrimaryKey(Long appId){
-    	if(appId == null){
-    		throw new IllegalStateException("参数appId不能为空");
+    public Integer deleteByPrimaryKey(Long id){
+    	if(id == null){
+    		throw new IllegalStateException("参数id不能为空");
     	}
 		int count = 0;
 		try{
-			count = appManager.deleteByPrimaryKey(appId);
+			count = customerLoginLogManager.deleteByPrimaryKey(id);
 		}
 		catch(Exception e){
 			logger.error("deleteByPrimaryKey error", e);
@@ -72,16 +72,16 @@ public class AppServiceImpl implements AppService {
 	 * @return Integer 成功条数  
 	 *
     */
-    public Integer insert(App record){
+    public Integer insert(customerLoginLog record){
 		if(record == null){
 			throw new IllegalStateException("参数record不能为空");
 		}
-    	if(record.getAppId() == null){
-    		throw new IllegalStateException("主键appId属性不能为空");
+    	if(record.getId() == null){
+    		throw new IllegalStateException("主键id属性不能为空");
     	}
 		int count = 0;
 		try{
-			count = appManager.insert(record);
+			count = customerLoginLogManager.insert(record);
 		}
 		catch(Exception e){
 			logger.error("insert error", e);
@@ -99,7 +99,7 @@ public class AppServiceImpl implements AppService {
 	 * @return  Page 
 	 *
     */
-    public Page<App> selectByExample(AppExample example, Integer pageNum, Integer pageSize){
+    public Page<customerLoginLog> selectByExample(customerLoginLogExample example, Integer pageNum, Integer pageSize){
 		if(pageNum != null && pageNum < 1){
 			throw new IllegalStateException("参数pageNum不能小于1");
 		}
@@ -114,10 +114,10 @@ public class AppServiceImpl implements AppService {
 			pageNum = 1;
 			pageSize = 0;
 		}
-		Page<App> records = new Page<App>();
+		Page<customerLoginLog> records = new Page<customerLoginLog>();
 		PageHelper.startPage(pageNum, pageSize);
 		try{
-			records = (Page<App>)appManager.selectByExample(example);
+			records = (Page<customerLoginLog>)customerLoginLogManager.selectByExample(example);
 		}
 		catch(Exception e){
 			logger.error("selectByExample error", e);
@@ -128,18 +128,18 @@ public class AppServiceImpl implements AppService {
 	/**
 	 * 按主键查询
 	 * 
-	 * @param appId 唯一的ID（没有啥意义，主键，自增长而已）
+	 * @param id 
 	 * 
 	 * @return  List 
 	 *
     */
-	public App selectByPrimaryKey(Long appId){
-    	if(appId == null){
-    		throw new IllegalStateException("参数appId不能为空");
+	public customerLoginLog selectByPrimaryKey(Long id){
+    	if(id == null){
+    		throw new IllegalStateException("参数id不能为空");
     	}
-		App record = null;
+		customerLoginLog record = null;
 		try{
-			record = appManager.selectByPrimaryKey(appId);
+			record = customerLoginLogManager.selectByPrimaryKey(id);
 		}
 		catch(Exception e){
 			logger.error("selectByPrimaryKey error", e);
@@ -154,16 +154,16 @@ public class AppServiceImpl implements AppService {
 	 * @return  List 
 	 *
     */
-	public Integer updateByPrimaryKeySelective(App record){
+	public Integer updateByPrimaryKeySelective(customerLoginLog record){
 		if(record == null){
 			throw new IllegalStateException("参数record不能为空");
 		}
-    	if(record.getAppId() == null){
-    		throw new IllegalStateException("主键appId属性不能为空");
+    	if(record.getId() == null){
+    		throw new IllegalStateException("主键id属性不能为空");
     	}
 		int count = 0;
 		try{
-			count = appManager.updateByPrimaryKeySelective(record);
+			count = customerLoginLogManager.updateByPrimaryKeySelective(record);
 		}
 		catch(Exception e){
 			logger.error("updateByPrimaryKeySelective error", e);
@@ -178,16 +178,16 @@ public class AppServiceImpl implements AppService {
 	 * @return Integer 成功条数  
 	 *
     */
-    public Integer updateByPrimaryKey(App record){
+    public Integer updateByPrimaryKey(customerLoginLog record){
 		if(record == null){
 			throw new IllegalStateException("参数record不能为空");
 		}
-    	if(record.getAppId() == null){
-    		throw new IllegalStateException("主键appId属性不能为空");
+    	if(record.getId() == null){
+    		throw new IllegalStateException("主键id属性不能为空");
     	}
 		int count = 0;
 		try{
-			count = appManager.updateByPrimaryKey(record);
+			count = customerLoginLogManager.updateByPrimaryKey(record);
 		}
 		catch(Exception e){
 			logger.error("updateByPrimaryKey error", e);

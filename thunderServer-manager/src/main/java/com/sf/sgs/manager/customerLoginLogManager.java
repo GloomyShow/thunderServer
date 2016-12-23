@@ -1,15 +1,15 @@
 package com.sf.sgs.manager;
 
 import java.util.List;
-import com.sf.sgs.domain.App;
-import com.sf.sgs.domain.AppExample;
+import com.sf.sgs.domain.customerLoginLog;
+import com.sf.sgs.domain.customerLoginLogExample;
 
 /**
- * appManager类
+ * customerLoginLogManager类
  *
  * @author 594829
 */
-public interface AppManager {
+public interface customerLoginLogManager {
 	
 	/**
 	 * 按条件计数
@@ -19,7 +19,7 @@ public interface AppManager {
 	 * @return int 记录总数
 	 *
     */
-    int countByExample(AppExample example);
+    int countByExample(customerLoginLogExample example);
 
 	/**
 	 * 按条件删除
@@ -29,17 +29,17 @@ public interface AppManager {
 	 * @return int 成功条数  
 	 *
     */
-    int deleteByExample(AppExample example);
+    int deleteByExample(customerLoginLogExample example);
 	
 	/**
 	 * 按主键删除
 	 * 
-	 * @param appId 唯一的ID（没有啥意义，主键，自增长而已）
+	 * @param id 
 	 * 
 	 * @return int 成功条数  
 	 *
     */
-    int deleteByPrimaryKey(Long appId);
+    int deleteByPrimaryKey(Long id);
 
 	/**
 	 * 新增
@@ -49,7 +49,7 @@ public interface AppManager {
 	 * @return int 成功条数  
 	 *
     */
-    int insert(App record);
+    int insert(customerLoginLog record);
 	
 	/**
 	 * 新增,null字段不插入
@@ -59,7 +59,7 @@ public interface AppManager {
 	 * @return int 成功条数  
 	 *
     */
-    int insertSelective(App record);
+    int insertSelective(customerLoginLog record);
 	
 	
 	/**
@@ -67,20 +67,20 @@ public interface AppManager {
 	 * 
 	 * @param example 条件
 	 * 
-	 * @return List<App> 记录列表
+	 * @return List<customerLoginLog> 记录列表
 	 *
     */
-    List<App> selectByExample(AppExample example);
+    List<customerLoginLog> selectByExample(customerLoginLogExample example);
 
 	/**
 	 * 按主键查询
 	 * 
-	 * @param appId 唯一的ID（没有啥意义，主键，自增长而已）
+	 * @param id 
 	 * 
-	 * @return App 记录 
+	 * @return customerLoginLog 记录 
 	 *
     */
-    App selectByPrimaryKey(Long appId);
+    customerLoginLog selectByPrimaryKey(Long id);
 
 	/**
 	 * 按条件更新,null字段不更新
@@ -90,7 +90,7 @@ public interface AppManager {
 	 * @return int 成功条数  
 	 *
     */
-    int updateByExampleSelective(App record, AppExample example);
+    int updateByExampleSelective(customerLoginLog record, customerLoginLogExample example);
 
 	
 	/**
@@ -101,7 +101,7 @@ public interface AppManager {
 	 * @return int 成功条数  
 	 *
     */
-    int updateByExample(App record,  AppExample example);
+    int updateByExample(customerLoginLog record,  customerLoginLogExample example);
 
 	/**
 	 * 按主键更新,null的字段不更新
@@ -110,7 +110,7 @@ public interface AppManager {
 	 * @return int 成功条数 
 	 *
     */
-    int updateByPrimaryKeySelective(App record);
+    int updateByPrimaryKeySelective(customerLoginLog record);
 
 
 	/**
@@ -120,6 +120,6 @@ public interface AppManager {
 	 * @return int 成功条数 
 	 *
     */
-    int updateByPrimaryKey(App record);
+    int updateByPrimaryKey(customerLoginLog record);
 	
 }

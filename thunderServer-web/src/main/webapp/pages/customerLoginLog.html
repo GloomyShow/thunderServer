@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>App</title>
+    <title>customerLoginLog</title>
 
     <!-- 标签页图标 -->
     <link rel="shortcut icon" href="favicon.ico" />
@@ -29,7 +29,7 @@
 
             <!-- panel 面板标题-->
             <div class="panel-heading">
-                <h3 class="panel-title">App数据操作</h3>
+                <h3 class="panel-title">customerLoginLog数据操作</h3>
             </div>
 
             <!-- panel 面板主体-->
@@ -41,36 +41,36 @@
 
                     <div class="form-group">
                         <div class="input-group" >
-                            <div class="input-group-addon">唯一的ID（没有啥意义，主键，自增长而已）:</div>
-                            <input type="text" class="form-control" name="appId">
+                            <div class="input-group-addon">:</div>
+                            <input type="text" class="form-control" name="id">
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-primary" onclick="$.appUtils.submit.search()">查询</button>
+                    <button type="button" class="btn btn-primary" onclick="$.customerLoginLogUtils.submit.search()">查询</button>
 
                 </form>
 
 
                 <!-- 工具栏-->
-                <div id="appTableToolbar" role="toolbar" class="btn-toolbar">
+                <div id="customerLoginLogTableToolbar" role="toolbar" class="btn-toolbar">
                     <div class="btn-group">
                         <button type="button" class="btn btn-info"
-                                onclick="$.appUtils.queryList()"> 刷新
+                                onclick="$.customerLoginLogUtils.queryList()"> 刷新
                         </button>
                     </div>
                     <div class="btn-group">
                         <button type="button" class="btn btn-success glyphicon-plus"
-                                onclick="$.appUtils.button.add()"> 新增
+                                onclick="$.customerLoginLogUtils.button.add()"> 新增
                         </button>
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-danger" onclick="$.appUtils.button.operationBatch()">批量操作</button>
+                        <button type="button" class="btn btn-danger" onclick="$.customerLoginLogUtils.button.operationBatch()">批量操作</button>
                     </div>
 
                 </div>
 
                 <!-- table表格 -->
-                <table id="appTable" data-toggle="table"
+                <table id="customerLoginLogTable" data-toggle="table"
                        data-page-list="[10,20,30,ALL]"
                        data-pagination="true"
                        data-cache="false"
@@ -79,7 +79,7 @@
                        data-show-columns="false"
                        data-filter-control="false"
                        data-filter-show-clear="false"
-                       data-toolbar="#appTableToolbar"
+                       data-toolbar="#customerLoginLogTableToolbar"
                        data-side-pagination="server"
                 >
                     <!--  	data-page-list: 表格分页显示的可选择的数据条数
@@ -100,25 +100,16 @@
                               data-align: 是否居中显示	-->
                     <tr>
                         <th data-checkbox="true"></th>
-                        <th data-field="appId"  data-align="center">
-                                唯一的ID（没有啥意义，主键，自增长而已）
-                            </th>
-                        <th data-field="name"  data-align="center">
-                                APP名(一般是产品线+服务名)
-                            </th>
-                        <th data-field="description"  data-align="center">
-                                介绍
-                            </th>
-                        <th data-field="createTime"  data-align="center">
-                                生成时间
-                            </th>
-                        <th data-field="updateTime"  data-align="center">
-                                修改时
-                            </th>
-                        <th data-field="emails"  data-align="center">
-                                邮箱列表逗号分隔
-                            </th>
-                        <th data-field="operation" data-align="center" data-formatter="$.appUtils.formatter.operation">操作</th>
+                        <th data-field="id"  data-align="center">
+                                列名
+</th>
+                        <th data-field="customerId"  data-align="center">
+                                列名
+</th>
+                        <th data-field="loginTime"  data-align="center">
+                                列名
+</th>
+                        <th data-field="operation" data-align="center" data-formatter="$.customerLoginLogUtils.formatter.operation">操作</th>
                     </tr>
                     </thead>
 
@@ -128,7 +119,7 @@
         </div>
 
         <!-- 新增 模态框 -->
-        <div class="modal fade" id="addAppDialog" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal fade" id="addcustomerLoginLogDialog" role="dialog" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -142,50 +133,23 @@
 
                     <div class="modal-body">
                         <div class="row-fluid" >
-                            <form class="form-horizontal" role="form" id ="addAppForm" novalidate="novalidate">
+                            <form class="form-horizontal" role="form" id ="addcustomerLoginLogForm" novalidate="novalidate">
 
 
 
                                     <div class="form-group">
-                                        <label  class="col-sm-3 control-label">APP名(一般是产品线+服务名):</label>
+                                        <label  class="col-sm-3 control-label">:</label>
                                         <div class="col-sm-7">
-                                            <input type="text" class="form-control"  name="name"
+                                            <input type="text" class="form-control"  name="customerId"
                                                required placeholder="必填"
                                             >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label  class="col-sm-3 control-label">介绍:</label>
+                                        <label  class="col-sm-3 control-label">:</label>
                                         <div class="col-sm-7">
-                                            <input type="text" class="form-control"  name="description"
-                                               required placeholder="必填"
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label  class="col-sm-3 control-label">生成时间:</label>
-                                        <div class="col-sm-7">
-                                            <input type="text" class="form-control"  name="createTime"
-                                               required placeholder="必填"
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label  class="col-sm-3 control-label">修改时:</label>
-                                        <div class="col-sm-7">
-                                            <input type="text" class="form-control"  name="updateTime"
-                                               required placeholder="必填"
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label  class="col-sm-3 control-label">邮箱列表逗号分隔:</label>
-                                        <div class="col-sm-7">
-                                            <input type="text" class="form-control"  name="emails"
+                                            <input type="text" class="form-control"  name="loginTime"
                                                required placeholder="必填"
                                             >
                                         </div>
@@ -199,7 +163,7 @@
                         <button type="button" class="btn btn-default"
                                 data-dismiss="modal">关闭
                         </button>
-                        <button type="button" class="btn btn-primary" onclick="$.appUtils.submit.addApp()">
+                        <button type="button" class="btn btn-primary" onclick="$.customerLoginLogUtils.submit.addcustomerLoginLog()">
                             确定
                         </button>
                     </div>
@@ -210,7 +174,7 @@
         </div>
 
         <!-- 查看 模态框 -->
-        <div class="modal fade" id="showAppDialog" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal fade" id="showcustomerLoginLogDialog" role="dialog" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -221,48 +185,27 @@
 
                     <div class="modal-body">
                         <div class="row-fluid" >
-                            <form class="form-horizontal" role="form" id ="showAppForm" novalidate="novalidate">
+                            <form class="form-horizontal" role="form" id ="showcustomerLoginLogForm" novalidate="novalidate">
 
                                 <div class="form-group">
 
-                                    <label  class="col-sm-3 control-label">唯一的ID（没有啥意义，主键，自增长而已）:</label>
+                                    <label  class="col-sm-3 control-label">:</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control"  name="appId" readonly>
+                                        <input type="text" class="form-control"  name="id" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
 
-                                    <label  class="col-sm-3 control-label">APP名(一般是产品线+服务名):</label>
+                                    <label  class="col-sm-3 control-label">:</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control"  name="name" readonly>
+                                        <input type="text" class="form-control"  name="customerId" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
 
-                                    <label  class="col-sm-3 control-label">介绍:</label>
+                                    <label  class="col-sm-3 control-label">:</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control"  name="description" readonly>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-
-                                    <label  class="col-sm-3 control-label">生成时间:</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control"  name="createTime" readonly>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-
-                                    <label  class="col-sm-3 control-label">修改时:</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control"  name="updateTime" readonly>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-
-                                    <label  class="col-sm-3 control-label">邮箱列表逗号分隔:</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control"  name="emails" readonly>
+                                        <input type="text" class="form-control"  name="loginTime" readonly>
                                     </div>
                                 </div>
                             </form>
@@ -282,7 +225,7 @@
 
 
         <!-- 修改 模态框 -->
-        <div class="modal fade" id="updateAppDialog" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal fade" id="updatecustomerLoginLogDialog" role="dialog" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -293,56 +236,29 @@
 
                     <div class="modal-body">
                         <div class="row-fluid" >
-                            <form class="form-horizontal" role="form" id ="updateAppForm" novalidate="novalidate">
+                            <form class="form-horizontal" role="form" id ="updatecustomerLoginLogForm" novalidate="novalidate">
 
                                 <div class="form-group">
-                                    <label  class="col-sm-3 control-label">唯一的ID（没有啥意义，主键，自增长而已）:</label>
+                                    <label  class="col-sm-3 control-label">:</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control"  name="appId" readonly>
+                                        <input type="text" class="form-control"  name="id" readonly>
                                     </div>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label  class="col-sm-3 control-label">APP名(一般是产品线+服务名):</label>
+                                    <label  class="col-sm-3 control-label">:</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control"  name="name"
+                                        <input type="text" class="form-control"  name="customerId"
                                                required placeholder="必填"
                                         >
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label  class="col-sm-3 control-label">介绍:</label>
+                                    <label  class="col-sm-3 control-label">:</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control"  name="description"
-                                               required placeholder="必填"
-                                        >
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label  class="col-sm-3 control-label">生成时间:</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control"  name="createTime"
-                                               required placeholder="必填"
-                                        >
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label  class="col-sm-3 control-label">修改时:</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control"  name="updateTime"
-                                               required placeholder="必填"
-                                        >
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label  class="col-sm-3 control-label">邮箱列表逗号分隔:</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control"  name="emails"
+                                        <input type="text" class="form-control"  name="loginTime"
                                                required placeholder="必填"
                                         >
                                     </div>
@@ -357,7 +273,7 @@
                         <div style="display: inline;">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                             <button type="button" class="btn btn-primary"
-                                    onclick="$.appUtils.submit.updateApp()">确定
+                                    onclick="$.customerLoginLogUtils.submit.updatecustomerLoginLog()">确定
                             </button>
                         </div>
                     </div>
@@ -367,7 +283,7 @@
         </div>
 
         <!-- 删除 模态框-->
-        <div class="modal fade bs-example-modal-sm" id="deleteAppDialog" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal fade bs-example-modal-sm" id="deletecustomerLoginLogDialog" role="dialog" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -378,10 +294,10 @@
 
                     <div class="modal-body">
                         <div class="row-fluid" >
-                            <form class="form-horizontal" role="form" id ="deleteAppForm" novalidate="novalidate">
+                            <form class="form-horizontal" role="form" id ="deletecustomerLoginLogForm" novalidate="novalidate">
 
 
-                                <input name="appId" id="appIdForDel"  type="hidden">
+                                <input name="id" id="idForDel"  type="hidden">
 
                                 <h3  class="text-danger text-center">请确认是否删除?</h3>
                             </form>
@@ -393,7 +309,7 @@
                         <div style="display: inline;">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                             <button type="button" class="btn btn-danger"
-                                    onclick="$.appUtils.submit.deleteByPrimaryKey()">确定
+                                    onclick="$.customerLoginLogUtils.submit.deleteByPrimaryKey()">确定
                             </button>
                         </div>
                     </div>
@@ -403,7 +319,7 @@
         </div>
 
         <!-- 批量操作 模态框-->
-        <div class="modal fade bs-example-modal-sm" id="batchAppDialog" role="dialog" aria-hidden="true" data-backdrop="static">
+        <div class="modal fade bs-example-modal-sm" id="batchcustomerLoginLogDialog" role="dialog" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -425,7 +341,7 @@
                         <div style="display: inline;">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                             <button type="button" class="btn btn-danger"
-                                    onclick="$.appUtils.submit.batch()">确定
+                                    onclick="$.customerLoginLogUtils.submit.batch()">确定
                             </button>
                         </div>
                     </div>
@@ -458,5 +374,5 @@
 
 
 <script src="../assets/js/utils.js"></script>
-<script src="../assets/js/app.js"></script>
+<script src="../assets/js/customerLoginLog.js"></script>
 </html>

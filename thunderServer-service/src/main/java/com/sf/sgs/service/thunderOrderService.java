@@ -1,15 +1,15 @@
 package com.sf.sgs.service;
 
 import com.github.pagehelper.Page;
-import com.sf.sgs.domain.App;
-import com.sf.sgs.domain.AppExample;
+import com.sf.sgs.domain.thunderOrder;
+import com.sf.sgs.domain.thunderOrderExample;
 
 /**
- * appService类
+ * thunderOrderService类
  *
  * @author 594829
 */
-public interface AppService {
+public interface thunderOrderService {
 	
 	/**
 	 * 按条件计数
@@ -19,17 +19,17 @@ public interface AppService {
 	 * @return Integer 记录总数
 	 *
     */
-	Integer countByExample(AppExample example);
+	Integer countByExample(thunderOrderExample example);
 
 	/**
 	 * 按主键删除
 	 * 
-	 * @param appId 唯一的ID（没有啥意义，主键，自增长而已）
+	 * @param id 
 	 * 
 	 * @return Integer 成功条数  
 	 *
     */
-    Integer deleteByPrimaryKey(Long appId);
+    Integer deleteByPrimaryKey(Long id);
 
 	/**
 	 * 新增
@@ -39,7 +39,7 @@ public interface AppService {
 	 * @return Integer 成功条数  
 	 *
     */
-    Integer insert(App record);
+    Integer insert(thunderOrder record);
 	
 	/**
 	 * 按条件查询
@@ -48,20 +48,20 @@ public interface AppService {
 	 * @param pageNum 页码
 	 * @param pageSize 每页数量
 	 * 
-	 * @return  Page<App> 记录列表 
+	 * @return  Page<thunderOrder> 记录列表 
 	 *
     */
-    Page<App> selectByExample(AppExample example, Integer pageNum, Integer pageSize);
+    Page<thunderOrder> selectByExample(thunderOrderExample example, Integer pageNum, Integer pageSize);
 
 	/**
 	 * 按主键查询
 	 * 
-	 * @param appId 唯一的ID（没有啥意义，主键，自增长而已）
+	 * @param id 
 	 * 
-	 * @return App 记录 
+	 * @return thunderOrder 记录 
 	 *
     */
-	App selectByPrimaryKey(Long appId);
+	thunderOrder selectByPrimaryKey(Long id);
 	
 	/**
 	 * 按主键更新,null的字段不更新
@@ -70,7 +70,7 @@ public interface AppService {
 	 * @return Integer 成功条数  
 	 *
     */
-	Integer updateByPrimaryKeySelective(App record);
+	Integer updateByPrimaryKeySelective(thunderOrder record);
 
 	/**
 	 * 按主键更新
@@ -79,6 +79,6 @@ public interface AppService {
 	 * @return Integer 成功条数  
 	 *
     */
-    Integer updateByPrimaryKey(App record);
+    Integer updateByPrimaryKey(thunderOrder record);
 	
 }

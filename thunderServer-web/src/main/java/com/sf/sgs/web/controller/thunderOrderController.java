@@ -7,21 +7,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.github.pagehelper.Page;
-import com.sf.sgs.domain.App;
-import com.sf.sgs.domain.AppExample;
-import com.sf.sgs.service.AppService;
+import com.sf.sgs.domain.thunderOrder;
+import com.sf.sgs.domain.thunderOrderExample;
+import com.sf.sgs.service.thunderOrderService;
 
 /**
- * appController类
+ * thunderOrderController类
  *
  * @author 594829
 */
-@RequestMapping("app")
+@RequestMapping("thunderOrder")
 @Controller
-public class AppController {
+public class thunderOrderController {
 
 	@Autowired
-    private AppService appService;
+    private thunderOrderService thunderOrderService;
     
 	/**
 	 * 按条件计数
@@ -33,28 +33,28 @@ public class AppController {
     */
     @RequestMapping("countByExample")
     @ResponseBody
-	public Integer countByExample(AppExample example){
+	public Integer countByExample(thunderOrderExample example){
 		int count = 0;
-	    count = appService.countByExample(example);
+	    count = thunderOrderService.countByExample(example);
 	    return count;
 	}
 
 	/**
 	 * 按主键删除
 	 * 
-	 * @param appId 唯一的ID（没有啥意义，主键，自增长而已）
+	 * @param id 
 	 * 
 	 * @return int 成功条数  
 	 *
     */
 	@RequestMapping("deleteByPrimaryKey")
     @ResponseBody
-    public Boolean deleteByPrimaryKey(Long appId){
-    	if(appId == null){
-    		throw new IllegalStateException("参数appId不能为空");
+    public Boolean deleteByPrimaryKey(Long id){
+    	if(id == null){
+    		throw new IllegalStateException("参数id不能为空");
     	}
     	int count = 0;
-    	count = appService.deleteByPrimaryKey(appId);
+    	count = thunderOrderService.deleteByPrimaryKey(id);
         return  count > 0;
     }
 
@@ -68,15 +68,15 @@ public class AppController {
     */
 	@RequestMapping("insert")
     @ResponseBody
-    public Boolean insert(App record){
+    public Boolean insert(thunderOrder record){
     	if(record == null){
 			throw new IllegalStateException("参数record不能为空");
 		}
-    	if(record.getAppId() == null){
-    		throw new IllegalStateException("主键appId属性不能为空");
+    	if(record.getId() == null){
+    		throw new IllegalStateException("主键id属性不能为空");
     	}
     	int count = 0;
-    	count = appService.insert(record);
+    	count = thunderOrderService.insert(record);
         return  count > 0;
     }
 	
@@ -87,12 +87,12 @@ public class AppController {
 	 * @param offset 起始条数偏移量
 	 * @param pageSize  每页数量
 	 * 
-	 * @return  List<App> 记录列表 
+	 * @return  List<thunderOrder> 记录列表 
 	 *
     */	
 	@RequestMapping("selectByExample")
     @ResponseBody
-    public Map<String, Object> selectByExample(App record, Integer offset, Integer pageSize){
+    public Map<String, Object> selectByExample(thunderOrder record, Integer offset, Integer pageSize){
     	if(offset != null && offset < 0){
 			throw new IllegalStateException("参数offset不能小于0");
 		}
@@ -108,9 +108,9 @@ public class AppController {
 			pageNum = (offset.intValue() / pageSize.intValue()) + 1;
 		}
    		Map<String, Object> resultMap = new HashMap<String, Object>();
-    	AppExample example = new AppExample(); 
-    	Page<App> rows = null;
-		rows = appService.selectByExample(example, pageNum, pageSize);
+    	thunderOrderExample example = new thunderOrderExample(); 
+    	Page<thunderOrder> rows = null;
+		rows = thunderOrderService.selectByExample(example, pageNum, pageSize);
 		resultMap.put("rows", rows.getResult());
 		resultMap.put("totalRecord", rows.getTotal());
         return resultMap;
@@ -119,18 +119,18 @@ public class AppController {
 	/**
 	 * 按主键查询
 	 * 
-	 * @param appId 唯一的ID（没有啥意义，主键，自增长而已）
+	 * @param id 
 	 * 
-	 * @return App 记录 
+	 * @return thunderOrder 记录 
 	 *
     */	
 	@RequestMapping("selectByPrimaryKey")
     @ResponseBody
-	public App selectByPrimaryKey(Long appId){
-    	if(appId == null){
-    		throw new IllegalStateException("参数appId不能为空");
+	public thunderOrder selectByPrimaryKey(Long id){
+    	if(id == null){
+    		throw new IllegalStateException("参数id不能为空");
     	}
-	    return appService.selectByPrimaryKey(appId);
+	    return thunderOrderService.selectByPrimaryKey(id);
 	}
 	
 	/**
@@ -143,15 +143,15 @@ public class AppController {
     */
 	@RequestMapping("updateByPrimaryKeySelective")
     @ResponseBody
-	public Boolean updateByPrimaryKeySelective(App record){
+	public Boolean updateByPrimaryKeySelective(thunderOrder record){
 		if(record == null){
 			throw new IllegalStateException("参数record不能为空");
 		}
-    	if(record.getAppId() == null){
-    		throw new IllegalStateException("主键appId属性不能为空");
+    	if(record.getId() == null){
+    		throw new IllegalStateException("主键id属性不能为空");
     	}
 	    int count = 0;
-		count = appService.updateByPrimaryKeySelective(record);
+		count = thunderOrderService.updateByPrimaryKeySelective(record);
 	    return count > 0; 
 	}
 
@@ -165,15 +165,15 @@ public class AppController {
     */
 	@RequestMapping("updateByPrimaryKey")
     @ResponseBody
-    public Boolean updateByPrimaryKey(App record){
+    public Boolean updateByPrimaryKey(thunderOrder record){
     	if(record == null){
 			throw new IllegalStateException("参数record不能为空");
 		}
-    	if(record.getAppId() == null){
-    		throw new IllegalStateException("主键appId属性不能为空");
+    	if(record.getId() == null){
+    		throw new IllegalStateException("主键id属性不能为空");
     	}
     	int count = 0;
-    	count = appService.updateByPrimaryKey(record);
+    	count = thunderOrderService.updateByPrimaryKey(record);
         return count > 0;
     }
 	

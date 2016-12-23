@@ -10,8 +10,8 @@
         </commentGenerator>
         
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-        	connectionURL="jdbc:mysql://10.2.0.99:3306/thunderServer?useUnicode=true&amp;charaterEncoding=utf-8"
-            userId="incsgspush" password="passwd123">
+        	connectionURL="jdbc:mysql://localhost:3306/thunderserver?useUnicode=true&amp;charaterEncoding=utf-8"
+            userId="root" password="root">
         </jdbcConnection>
 
 		<javaTypeResolver>
@@ -58,8 +58,22 @@
 			<property name="contextName" value=".." /><![CDATA[--引入固定CSS以及JS的前缀 --]]>
 		</htmlGenerator> 
 
-        <table schema="" tableName="app" domainObjectName="App">
-        </table> 
+        <table schema="" tableName="customer_account" domainObjectName="customerAccount">
+        </table>
+
+		<table schema="" tableName="courier_account" domainObjectName="courierAccount">
+		</table>
+
+		<table schema="" tableName="customer_login_log" domainObjectName="customerLoginLog">
+		</table>
+
+		<table schema="" tableName="courier_login_log" domainObjectName="courierLoginLog">
+		</table>
+
+		<table schema="" tableName="thunder_order" domainObjectName="thunderOrder">
+		</table>
+
+
 
 	</context>
 </generatorConfiguration>
