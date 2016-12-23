@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="thunderServer-web:war">
+    <output-path>$PROJECT_DIR$/thunderServer-web/target</output-path>
+    <root id="archive" name="thunderServer-web.war">
+      <element id="artifact" artifact-name="thunderServer-web:war exploded" />
+    </root>
+  </artifact>
+</component>

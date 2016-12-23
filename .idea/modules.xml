@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/thunderServer.iml" filepath="$PROJECT_DIR$/thunderServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thunderServer-common/thunderServer-common.iml" filepath="$PROJECT_DIR$/thunderServer-common/thunderServer-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thunderServer-dao/thunderServer-dao.iml" filepath="$PROJECT_DIR$/thunderServer-dao/thunderServer-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thunderServer-manager/thunderServer-manager.iml" filepath="$PROJECT_DIR$/thunderServer-manager/thunderServer-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thunderServer-service/thunderServer-service.iml" filepath="$PROJECT_DIR$/thunderServer-service/thunderServer-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thunderServer-web/thunderServer-web.iml" filepath="$PROJECT_DIR$/thunderServer-web/thunderServer-web.iml" />
+    </modules>
+  </component>
+</project>
