@@ -117,14 +117,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sf.sgs.domain.ThunderOrder">
-    insert into thunder_order (id, customer_id, courier_id, 
+    insert into thunder_order (customer_id, courier_id,
       amount, start_lng, start_lat, 
       finished_lng, finished__lat, source_address, 
       dest_address, order_type, remark, 
       weight, volume, expected_arrival_time, 
       order_status, started_time, finshed_time, 
       created_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{customerId,jdbcType=BIGINT}, #{courierId,jdbcType=BIGINT}, 
+    values (#{customerId,jdbcType=BIGINT}, #{courierId,jdbcType=BIGINT},
       #{amount,jdbcType=INTEGER}, #{startLng,jdbcType=VARCHAR}, #{startLat,jdbcType=VARCHAR}, 
       #{finishedLng,jdbcType=VARCHAR}, #{finishedLat,jdbcType=VARCHAR}, #{sourceAddress,jdbcType=VARCHAR}, 
       #{destAddress,jdbcType=VARCHAR}, #{orderType,jdbcType=TINYINT}, #{remark,jdbcType=VARCHAR}, 
