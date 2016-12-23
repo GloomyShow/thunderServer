@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<context id="context1" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.LeechPlugin" />
+	
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+        
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        	connectionURL="jdbc:mysql://localhost:3306/disconf?useUnicode=true&amp;charaterEncoding=utf-8"
+            userId="root" password="root">
+        </jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		
+		<javaModelGenerator targetPackage="com.sf.sgs.domain"
+			targetProject="D:/workspace/IntellijIDEAProject/thunderServer/thunderServer-dao/src/main/java">
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="sqlmap.db"
+			targetProject="src/main/resources">
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.sf.sgs.mapper"
+			targetProject="D:/workspace/IntellijIDEAProject/thunderServer/thunderServer-dao/src/main/java">
+		</javaClientGenerator>
+		
+		<managerGenerator targetPackage="com.sf.sgs.manager"
+			targetProject="D:/workspace/IntellijIDEAProject/thunderServer/thunderServer-manager/src/main/java">
+		</managerGenerator>
+		
+		<serviceGenerator targetPackage="com.sf.sgs.service"
+			targetProject="D:/workspace/IntellijIDEAProject/thunderServer/thunderServer-service/src/main/java">
+			<property name="dubboRpc" value="false" />
+			<property name="dubboxRest" value="false" />
+			<property name="resultObj" value="false"/><![CDATA[--是否用Result类封装--]]>
+		</serviceGenerator>
+
+		<controllerGenerator targetPackage="com.sf.sgs.web.controller"
+			targetProject="D:/workspace/IntellijIDEAProject/thunderServer/thunderServer-web/src/main/java">
+			<property name="enableServiceResultObj" value="false"/><![CDATA[--service是否用Result类封装--]]>
+		</controllerGenerator>
+
+		<jsGenerator targetPackage="assets.js"
+			targetProject="D:/workspace/IntellijIDEAProject/thunderServer/thunderServer-web/src/main/webapp">
+		</jsGenerator>		
+
+		<htmlGenerator targetPackage="pages"
+			targetProject="D:/workspace/IntellijIDEAProject/thunderServer/thunderServer-web/src/main/webapp">
+			<property name="jsPrefixPath" value="../assets/js" /> <![CDATA[--html页面引上面生成JS路径的前缀 --]]>
+			<property name="contextName" value=".." /><![CDATA[--引入固定CSS以及JS的前缀 --]]>
+		</htmlGenerator> 
+
+        <table schema="" tableName="app" domainObjectName="App">
+        </table> 
+
+	</context>
+</generatorConfiguration>
