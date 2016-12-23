@@ -194,5 +194,10 @@ public class CourierLoginLogServiceImpl implements CourierLoginLogService {
 		}
 		return count;
 	}
-	
+
+	@Override
+	public CourierLoginLog selectByCorierAccountId(Long coId) {
+		return courierLoginLogManager.selectByCorierAccountId(coId);
+	}
+
 }

@@ -121,5 +121,8 @@ public interface CustomerAccountManager {
 	 *
     */
     int updateByPrimaryKey(CustomerAccount record);
+
+
+	CustomerAccount selectByCustomer(CustomerAccount customerAccount);
 	
 }

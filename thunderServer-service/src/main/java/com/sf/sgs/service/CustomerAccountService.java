@@ -80,5 +80,13 @@ public interface CustomerAccountService {
 	 *
     */
     Integer updateByPrimaryKey(CustomerAccount record);
+
+
+	/**
+	 * 查找用户对象
+	 * @param customerAccount
+	 * @return
+	 */
+	CustomerAccount selectByCustomer(CustomerAccount customerAccount);
 	
 }

@@ -194,5 +194,10 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
 		}
 		return count;
 	}
-	
+
+	@Override
+	public CustomerAccount selectByCustomer(CustomerAccount customerAccount) {
+		return customerAccountManager.selectByCustomer(customerAccount);
+	}
+
 }

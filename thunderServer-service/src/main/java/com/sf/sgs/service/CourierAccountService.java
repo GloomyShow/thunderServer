@@ -4,6 +4,8 @@ import com.github.pagehelper.Page;
 import com.sf.sgs.domain.CourierAccount;
 import com.sf.sgs.domain.CourierAccountExample;
 
+import java.util.List;
+
 /**
  * CourierAccountService类
  *
@@ -80,5 +82,14 @@ public interface CourierAccountService {
 	 *
     */
     Integer updateByPrimaryKey(CourierAccount record);
+
+
+	/**
+	 * 查询当前用户附近的收派员
+	 * @param courierType 收件员类型
+	 * @param company 公司名称
+	 * @return
+	 */
+	List<CourierAccount> selectByType(int courierType,String company);
 	
 }

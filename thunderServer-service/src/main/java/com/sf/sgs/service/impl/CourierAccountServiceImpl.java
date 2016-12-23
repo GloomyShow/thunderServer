@@ -10,6 +10,10 @@ import com.sf.sgs.domain.CourierAccount;
 import com.sf.sgs.domain.CourierAccountExample;
 import com.sf.sgs.manager.CourierAccountManager;
 import com.sf.sgs.service.CourierAccountService;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * CourierAccountService实现类
  *
@@ -194,5 +198,12 @@ public class CourierAccountServiceImpl implements CourierAccountService {
 		}
 		return count;
 	}
-	
+
+	@Override
+	public List<CourierAccount> selectByType(int courierType, String company) {
+		List<CourierAccount> courierAccountList = new ArrayList<CourierAccount>();
+		courierAccountList = courierAccountManager.selectByType(courierType,company);
+		return courierAccountList;
+	}
+
 }

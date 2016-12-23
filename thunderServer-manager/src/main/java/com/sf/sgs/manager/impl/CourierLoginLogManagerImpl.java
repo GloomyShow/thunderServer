@@ -161,5 +161,10 @@ public class CourierLoginLogManagerImpl implements CourierLoginLogManager {
     public int updateByPrimaryKey(CourierLoginLog record){
 		return courierLoginLogMapper.updateByPrimaryKey(record);
 	}
-	
+
+	@Override
+	public CourierLoginLog selectByCorierAccountId(Long coId) {
+		return courierLoginLogMapper.selectByCorierAccountId(coId);
+	}
+
 }

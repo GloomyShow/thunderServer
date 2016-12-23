@@ -161,5 +161,15 @@ public class CustomerAccountManagerImpl implements CustomerAccountManager {
     public int updateByPrimaryKey(CustomerAccount record){
 		return customerAccountMapper.updateByPrimaryKey(record);
 	}
-	
+
+	/**
+	 * 查询相关用户信息
+	 * @param customerAccount
+	 * @return
+	 */
+	@Override
+	public CustomerAccount selectByCustomer(CustomerAccount customerAccount) {
+		return customerAccountMapper.selectByCustomer(customerAccount);
+	}
+
 }

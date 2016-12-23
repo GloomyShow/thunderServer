@@ -80,5 +80,8 @@ public interface CourierLoginLogService {
 	 *
     */
     Integer updateByPrimaryKey(CourierLoginLog record);
+
+
+	CourierLoginLog	selectByCorierAccountId(Long coId);
 	
 }

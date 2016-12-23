@@ -121,5 +121,7 @@ public interface CourierLoginLogManager {
 	 *
     */
     int updateByPrimaryKey(CourierLoginLog record);
+
+	CourierLoginLog	selectByCorierAccountId(Long coId);
 	
 }

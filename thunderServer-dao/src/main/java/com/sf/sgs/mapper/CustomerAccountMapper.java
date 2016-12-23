@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 /**
+ * 用户信息表Mapper类
  * 
  * @author 594829
  */
@@ -31,4 +32,6 @@ public interface CustomerAccountMapper {
     int updateByPrimaryKeySelective(CustomerAccount record);
 
     int updateByPrimaryKey(CustomerAccount record);
+
+    CustomerAccount selectByCustomer(CustomerAccount customerAccount);
 }

@@ -121,5 +121,15 @@ public interface CourierAccountManager {
 	 *
     */
     int updateByPrimaryKey(CourierAccount record);
-	
+
+
+	/**
+	 * 查询当前用户附近的收派员
+	 * @param courierType 收件员类型
+	 * @param company 公司名称
+	 * @return
+	 */
+	List<CourierAccount> selectByType(int courierType,String company);
+
+
 }

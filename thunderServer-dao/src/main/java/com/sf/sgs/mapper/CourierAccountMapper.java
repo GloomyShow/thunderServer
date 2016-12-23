@@ -31,4 +31,6 @@ public interface CourierAccountMapper {
     int updateByPrimaryKeySelective(CourierAccount record);
 
     int updateByPrimaryKey(CourierAccount record);
+
+    List<CourierAccount> selectByType(@Param("courierType")int courierType,@Param("company")String company);
 }

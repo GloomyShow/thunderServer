@@ -161,5 +161,10 @@ public class CourierAccountManagerImpl implements CourierAccountManager {
     public int updateByPrimaryKey(CourierAccount record){
 		return courierAccountMapper.updateByPrimaryKey(record);
 	}
-	
+
+	@Override
+	public List<CourierAccount> selectByType(int courierType, String company) {
+		return courierAccountMapper.selectByType(courierType,company);
+	}
+
 }

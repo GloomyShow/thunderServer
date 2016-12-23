@@ -32,7 +32,7 @@
 			targetProject="D:/workspace/IntellijIDEAProject/thunderServer/thunderServer-dao/src/main/java">
 		</javaClientGenerator>
 		
-		<managerGenerator targetPackage="com.sf.sgs.manager"
+	<!--	<managerGenerator targetPackage="com.sf.sgs.manager"
 			targetProject="D:/workspace/IntellijIDEAProject/thunderServer/thunderServer-manager/src/main/java">
 		</managerGenerator>
 		
@@ -40,12 +40,12 @@
 			targetProject="D:/workspace/IntellijIDEAProject/thunderServer/thunderServer-service/src/main/java">
 			<property name="dubboRpc" value="false" />
 			<property name="dubboxRest" value="false" />
-			<property name="resultObj" value="false"/><![CDATA[--是否用Result类封装--]]>
+			<property name="resultObj" value="false"/><![CDATA[&#45;&#45;是否用Result类封装&#45;&#45;]]>
 		</serviceGenerator>
 
 		<controllerGenerator targetPackage="com.sf.sgs.web.controller"
 			targetProject="D:/workspace/IntellijIDEAProject/thunderServer/thunderServer-web/src/main/java">
-			<property name="enableServiceResultObj" value="false"/><![CDATA[--service是否用Result类封装--]]>
+			<property name="enableServiceResultObj" value="false"/><![CDATA[&#45;&#45;service是否用Result类封装&#45;&#45;]]>
 		</controllerGenerator>
 
 		<jsGenerator targetPackage="assets.js"
@@ -54,14 +54,14 @@
 
 		<htmlGenerator targetPackage="pages"
 			targetProject="D:/workspace/IntellijIDEAProject/thunderServer/thunderServer-web/src/main/webapp">
-			<property name="jsPrefixPath" value="../assets/js" /> <![CDATA[--html页面引上面生成JS路径的前缀 --]]>
-			<property name="contextName" value=".." /><![CDATA[--引入固定CSS以及JS的前缀 --]]>
-		</htmlGenerator> 
+			<property name="jsPrefixPath" value="../assets/js" /> <![CDATA[&#45;&#45;html页面引上面生成JS路径的前缀 &#45;&#45;]]>
+			<property name="contextName" value=".." /><![CDATA[&#45;&#45;引入固定CSS以及JS的前缀 &#45;&#45;]]>
+		</htmlGenerator> -->
 
         <table schema="" tableName="customer_account" domainObjectName="CustomerAccount">
         </table>
 
-		<table schema="" tableName="courier_account" domainObjectName="CourierAccount">
+	<!--	<table schema="" tableName="courier_account" domainObjectName="CourierAccount">
 		</table>
 
 		<table schema="" tableName="customer_login_log" domainObjectName="CustomerLoginLog">
@@ -71,7 +71,7 @@
 		</table>
 
 		<table schema="" tableName="thunder_order" domainObjectName="ThunderOrder">
-		</table>
+		</table>-->
 
 
 

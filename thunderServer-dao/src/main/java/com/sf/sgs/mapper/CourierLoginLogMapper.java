@@ -31,4 +31,6 @@ public interface CourierLoginLogMapper {
     int updateByPrimaryKeySelective(CourierLoginLog record);
 
     int updateByPrimaryKey(CourierLoginLog record);
+
+    CourierLoginLog selectByCorierAccountId(Long coId);
 }
