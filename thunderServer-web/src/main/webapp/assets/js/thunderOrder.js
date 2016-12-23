@@ -37,7 +37,7 @@ $.thunderOrderUtils={
         },
         initValid:function(){
 
-            $('#addthunderOrderForm').validate({
+            $('#addThunderOrderForm').validate({
                 rules:{
 
 
@@ -91,7 +91,7 @@ $.thunderOrderUtils={
 
 
 
-            $('#updatethunderOrderForm').validate({
+            $('#updateThunderOrderForm').validate({
             rules:{
 
                     customerId : "required",
@@ -155,13 +155,13 @@ $.thunderOrderUtils={
 $.thunderOrderUtils.button={
     add:function(){
 
-        $('#addthunderOrderForm div').removeClass('has-error');
+        $('#addThunderOrderForm div').removeClass('has-error');
 
-        $('#addthunderOrderForm').validate().resetForm();
+        $('#addThunderOrderForm').validate().resetForm();
 
-        $('#addthunderOrderForm')[0].reset();
+        $('#addThunderOrderForm')[0].reset();
 
-        $('#addthunderOrderDialog').modal('show');
+        $('#addThunderOrderDialog').modal('show');
     },
     deleteByPrimaryKey:function(
             id
@@ -169,7 +169,7 @@ $.thunderOrderUtils.button={
 
         $("#idForDel").val(id);
 
-        $('#deletethunderOrderDialog').modal('show');
+        $('#deleteThunderOrderDialog').modal('show');
 
     },
     updateById:function(
@@ -187,15 +187,15 @@ $.thunderOrderUtils.button={
               //  } else {
                     var data= $.utils.objToJson(response);
 
-                    $('#updatethunderOrderForm div').removeClass('has-error');
+                    $('#updateThunderOrderForm div').removeClass('has-error');
 
-                    $('#updatethunderOrderForm').validate().resetForm();
+                    $('#updateThunderOrderForm').validate().resetForm();
 
-                    $('#updatethunderOrderForm')[0].reset();
+                    $('#updateThunderOrderForm')[0].reset();
 
-                    $('#updatethunderOrderForm').fill(JSON.parse(data));
+                    $('#updateThunderOrderForm').fill(JSON.parse(data));
 
-                    $('#updatethunderOrderDialog').modal('show');
+                    $('#updateThunderOrderDialog').modal('show');
                 //}
             }
         });
@@ -209,7 +209,7 @@ $.thunderOrderUtils.button={
             return;
         }
 
-        $("#batchthunderOrderDialog").modal("show");
+        $("#batchThunderOrderDialog").modal("show");
 
     },
     selectByPrimaryKey:function(
@@ -223,11 +223,11 @@ $.thunderOrderUtils.button={
             success: function (response) {
                     var data= $.utils.objToJson(response);
 
-                    $('#showthunderOrderForm')[0].reset();
+                    $('#showThunderOrderForm')[0].reset();
 
-                    $('#showthunderOrderForm').fill(JSON.parse(data));
+                    $('#showThunderOrderForm').fill(JSON.parse(data));
 
-                    $('#showthunderOrderDialog').modal('show');
+                    $('#showThunderOrderDialog').modal('show');
 
             }
         });
@@ -237,21 +237,21 @@ $.thunderOrderUtils.button={
 
 /**
  * 所有直接通过操作与后台进行交互的方法
- * @type {{addthunderOrder: $.thunderOrderUtils.submit.addthunderOrder, updateABC: $.thunderOrderUtils.submit.updatethunderOrder, deleteById: $.thunderOrderUtils.submit.deleteById, search: $.thunderOrderUtils.submit.search, batch: $.thunderOrderUtils.submit.batch}}
+ * @type {{addThunderOrder: $.thunderOrderUtils.submit.addThunderOrder, updateABC: $.thunderOrderUtils.submit.updateThunderOrder, deleteById: $.thunderOrderUtils.submit.deleteById, search: $.thunderOrderUtils.submit.search, batch: $.thunderOrderUtils.submit.batch}}
  */
 $.thunderOrderUtils.submit={
-    addthunderOrder:function(){
-        if($('#addthunderOrderForm').valid()){
-            $.utils.submit('/thunderOrder/insert', '#addthunderOrderForm', '#addthunderOrderDialog', '新增出错~', null, '#thunderOrderTable', null, '新增成功~');
+    addThunderOrder:function(){
+        if($('#addThunderOrderForm').valid()){
+            $.utils.submit('/thunderOrder/insert', '#addThunderOrderForm', '#addThunderOrderDialog', '新增出错~', null, '#thunderOrderTable', null, '新增成功~');
         }
     },
-    updatethunderOrder:function(){
-        if($('#updatethunderOrderForm').valid()){
-            $.utils.submit('/thunderOrder/updateByPrimaryKeySelective', '#updatethunderOrderForm', '#updatethunderOrderDialog', '修改出错~', null, '#thunderOrderTable', null, '修改成功~');
+    updateThunderOrder:function(){
+        if($('#updateThunderOrderForm').valid()){
+            $.utils.submit('/thunderOrder/updateByPrimaryKeySelective', '#updateThunderOrderForm', '#updateThunderOrderDialog', '修改出错~', null, '#thunderOrderTable', null, '修改成功~');
         }
     },
     deleteByPrimaryKey:function() {
-        $.utils.submit('/thunderOrder/deleteByPrimaryKey', '#deletethunderOrderForm', '#deletethunderOrderDialog', '修改出错~', null, '#thunderOrderTable', null, '修改成功~');
+        $.utils.submit('/thunderOrder/deleteByPrimaryKey', '#deleteThunderOrderForm', '#deleteThunderOrderDialog', '修改出错~', null, '#thunderOrderTable', null, '修改成功~');
     },
     search:function(){
 

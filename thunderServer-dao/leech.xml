@@ -58,19 +58,19 @@
 			<property name="contextName" value=".." /><![CDATA[--引入固定CSS以及JS的前缀 --]]>
 		</htmlGenerator> 
 
-        <table schema="" tableName="customer_account" domainObjectName="customerAccount">
+        <table schema="" tableName="customer_account" domainObjectName="CustomerAccount">
         </table>
 
-		<table schema="" tableName="courier_account" domainObjectName="courierAccount">
+		<table schema="" tableName="courier_account" domainObjectName="CourierAccount">
 		</table>
 
-		<table schema="" tableName="customer_login_log" domainObjectName="customerLoginLog">
+		<table schema="" tableName="customer_login_log" domainObjectName="CustomerLoginLog">
 		</table>
 
-		<table schema="" tableName="courier_login_log" domainObjectName="courierLoginLog">
+		<table schema="" tableName="courier_login_log" domainObjectName="CourierLoginLog">
 		</table>
 
-		<table schema="" tableName="thunder_order" domainObjectName="thunderOrder">
+		<table schema="" tableName="thunder_order" domainObjectName="ThunderOrder">
 		</table>
 
 

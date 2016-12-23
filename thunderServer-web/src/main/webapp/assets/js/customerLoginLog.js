@@ -37,7 +37,7 @@ $.customerLoginLogUtils={
         },
         initValid:function(){
 
-            $('#addcustomerLoginLogForm').validate({
+            $('#addCustomerLoginLogForm').validate({
                 rules:{
 
 
@@ -64,7 +64,7 @@ $.customerLoginLogUtils={
 
 
 
-            $('#updatecustomerLoginLogForm').validate({
+            $('#updateCustomerLoginLogForm').validate({
             rules:{
 
                     customerId : "required",
@@ -101,13 +101,13 @@ $.customerLoginLogUtils={
 $.customerLoginLogUtils.button={
     add:function(){
 
-        $('#addcustomerLoginLogForm div').removeClass('has-error');
+        $('#addCustomerLoginLogForm div').removeClass('has-error');
 
-        $('#addcustomerLoginLogForm').validate().resetForm();
+        $('#addCustomerLoginLogForm').validate().resetForm();
 
-        $('#addcustomerLoginLogForm')[0].reset();
+        $('#addCustomerLoginLogForm')[0].reset();
 
-        $('#addcustomerLoginLogDialog').modal('show');
+        $('#addCustomerLoginLogDialog').modal('show');
     },
     deleteByPrimaryKey:function(
             id
@@ -115,7 +115,7 @@ $.customerLoginLogUtils.button={
 
         $("#idForDel").val(id);
 
-        $('#deletecustomerLoginLogDialog').modal('show');
+        $('#deleteCustomerLoginLogDialog').modal('show');
 
     },
     updateById:function(
@@ -133,15 +133,15 @@ $.customerLoginLogUtils.button={
               //  } else {
                     var data= $.utils.objToJson(response);
 
-                    $('#updatecustomerLoginLogForm div').removeClass('has-error');
+                    $('#updateCustomerLoginLogForm div').removeClass('has-error');
 
-                    $('#updatecustomerLoginLogForm').validate().resetForm();
+                    $('#updateCustomerLoginLogForm').validate().resetForm();
 
-                    $('#updatecustomerLoginLogForm')[0].reset();
+                    $('#updateCustomerLoginLogForm')[0].reset();
 
-                    $('#updatecustomerLoginLogForm').fill(JSON.parse(data));
+                    $('#updateCustomerLoginLogForm').fill(JSON.parse(data));
 
-                    $('#updatecustomerLoginLogDialog').modal('show');
+                    $('#updateCustomerLoginLogDialog').modal('show');
                 //}
             }
         });
@@ -155,7 +155,7 @@ $.customerLoginLogUtils.button={
             return;
         }
 
-        $("#batchcustomerLoginLogDialog").modal("show");
+        $("#batchCustomerLoginLogDialog").modal("show");
 
     },
     selectByPrimaryKey:function(
@@ -169,11 +169,11 @@ $.customerLoginLogUtils.button={
             success: function (response) {
                     var data= $.utils.objToJson(response);
 
-                    $('#showcustomerLoginLogForm')[0].reset();
+                    $('#showCustomerLoginLogForm')[0].reset();
 
-                    $('#showcustomerLoginLogForm').fill(JSON.parse(data));
+                    $('#showCustomerLoginLogForm').fill(JSON.parse(data));
 
-                    $('#showcustomerLoginLogDialog').modal('show');
+                    $('#showCustomerLoginLogDialog').modal('show');
 
             }
         });
@@ -183,21 +183,21 @@ $.customerLoginLogUtils.button={
 
 /**
  * 所有直接通过操作与后台进行交互的方法
- * @type {{addcustomerLoginLog: $.customerLoginLogUtils.submit.addcustomerLoginLog, updateABC: $.customerLoginLogUtils.submit.updatecustomerLoginLog, deleteById: $.customerLoginLogUtils.submit.deleteById, search: $.customerLoginLogUtils.submit.search, batch: $.customerLoginLogUtils.submit.batch}}
+ * @type {{addCustomerLoginLog: $.customerLoginLogUtils.submit.addCustomerLoginLog, updateABC: $.customerLoginLogUtils.submit.updateCustomerLoginLog, deleteById: $.customerLoginLogUtils.submit.deleteById, search: $.customerLoginLogUtils.submit.search, batch: $.customerLoginLogUtils.submit.batch}}
  */
 $.customerLoginLogUtils.submit={
-    addcustomerLoginLog:function(){
-        if($('#addcustomerLoginLogForm').valid()){
-            $.utils.submit('/customerLoginLog/insert', '#addcustomerLoginLogForm', '#addcustomerLoginLogDialog', '新增出错~', null, '#customerLoginLogTable', null, '新增成功~');
+    addCustomerLoginLog:function(){
+        if($('#addCustomerLoginLogForm').valid()){
+            $.utils.submit('/customerLoginLog/insert', '#addCustomerLoginLogForm', '#addCustomerLoginLogDialog', '新增出错~', null, '#customerLoginLogTable', null, '新增成功~');
         }
     },
-    updatecustomerLoginLog:function(){
-        if($('#updatecustomerLoginLogForm').valid()){
-            $.utils.submit('/customerLoginLog/updateByPrimaryKeySelective', '#updatecustomerLoginLogForm', '#updatecustomerLoginLogDialog', '修改出错~', null, '#customerLoginLogTable', null, '修改成功~');
+    updateCustomerLoginLog:function(){
+        if($('#updateCustomerLoginLogForm').valid()){
+            $.utils.submit('/customerLoginLog/updateByPrimaryKeySelective', '#updateCustomerLoginLogForm', '#updateCustomerLoginLogDialog', '修改出错~', null, '#customerLoginLogTable', null, '修改成功~');
         }
     },
     deleteByPrimaryKey:function() {
-        $.utils.submit('/customerLoginLog/deleteByPrimaryKey', '#deletecustomerLoginLogForm', '#deletecustomerLoginLogDialog', '修改出错~', null, '#customerLoginLogTable', null, '修改成功~');
+        $.utils.submit('/customerLoginLog/deleteByPrimaryKey', '#deleteCustomerLoginLogForm', '#deleteCustomerLoginLogDialog', '修改出错~', null, '#customerLoginLogTable', null, '修改成功~');
     },
     search:function(){
 

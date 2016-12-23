@@ -37,7 +37,7 @@ $.courierLoginLogUtils={
         },
         initValid:function(){
 
-            $('#addcourierLoginLogForm').validate({
+            $('#addCourierLoginLogForm').validate({
                 rules:{
 
 
@@ -66,7 +66,7 @@ $.courierLoginLogUtils={
 
 
 
-            $('#updatecourierLoginLogForm').validate({
+            $('#updateCourierLoginLogForm').validate({
             rules:{
 
                     customerId : "required",
@@ -105,13 +105,13 @@ $.courierLoginLogUtils={
 $.courierLoginLogUtils.button={
     add:function(){
 
-        $('#addcourierLoginLogForm div').removeClass('has-error');
+        $('#addCourierLoginLogForm div').removeClass('has-error');
 
-        $('#addcourierLoginLogForm').validate().resetForm();
+        $('#addCourierLoginLogForm').validate().resetForm();
 
-        $('#addcourierLoginLogForm')[0].reset();
+        $('#addCourierLoginLogForm')[0].reset();
 
-        $('#addcourierLoginLogDialog').modal('show');
+        $('#addCourierLoginLogDialog').modal('show');
     },
     deleteByPrimaryKey:function(
             id
@@ -119,7 +119,7 @@ $.courierLoginLogUtils.button={
 
         $("#idForDel").val(id);
 
-        $('#deletecourierLoginLogDialog').modal('show');
+        $('#deleteCourierLoginLogDialog').modal('show');
 
     },
     updateById:function(
@@ -137,15 +137,15 @@ $.courierLoginLogUtils.button={
               //  } else {
                     var data= $.utils.objToJson(response);
 
-                    $('#updatecourierLoginLogForm div').removeClass('has-error');
+                    $('#updateCourierLoginLogForm div').removeClass('has-error');
 
-                    $('#updatecourierLoginLogForm').validate().resetForm();
+                    $('#updateCourierLoginLogForm').validate().resetForm();
 
-                    $('#updatecourierLoginLogForm')[0].reset();
+                    $('#updateCourierLoginLogForm')[0].reset();
 
-                    $('#updatecourierLoginLogForm').fill(JSON.parse(data));
+                    $('#updateCourierLoginLogForm').fill(JSON.parse(data));
 
-                    $('#updatecourierLoginLogDialog').modal('show');
+                    $('#updateCourierLoginLogDialog').modal('show');
                 //}
             }
         });
@@ -159,7 +159,7 @@ $.courierLoginLogUtils.button={
             return;
         }
 
-        $("#batchcourierLoginLogDialog").modal("show");
+        $("#batchCourierLoginLogDialog").modal("show");
 
     },
     selectByPrimaryKey:function(
@@ -173,11 +173,11 @@ $.courierLoginLogUtils.button={
             success: function (response) {
                     var data= $.utils.objToJson(response);
 
-                    $('#showcourierLoginLogForm')[0].reset();
+                    $('#showCourierLoginLogForm')[0].reset();
 
-                    $('#showcourierLoginLogForm').fill(JSON.parse(data));
+                    $('#showCourierLoginLogForm').fill(JSON.parse(data));
 
-                    $('#showcourierLoginLogDialog').modal('show');
+                    $('#showCourierLoginLogDialog').modal('show');
 
             }
         });
@@ -187,21 +187,21 @@ $.courierLoginLogUtils.button={
 
 /**
  * 所有直接通过操作与后台进行交互的方法
- * @type {{addcourierLoginLog: $.courierLoginLogUtils.submit.addcourierLoginLog, updateABC: $.courierLoginLogUtils.submit.updatecourierLoginLog, deleteById: $.courierLoginLogUtils.submit.deleteById, search: $.courierLoginLogUtils.submit.search, batch: $.courierLoginLogUtils.submit.batch}}
+ * @type {{addCourierLoginLog: $.courierLoginLogUtils.submit.addCourierLoginLog, updateABC: $.courierLoginLogUtils.submit.updateCourierLoginLog, deleteById: $.courierLoginLogUtils.submit.deleteById, search: $.courierLoginLogUtils.submit.search, batch: $.courierLoginLogUtils.submit.batch}}
  */
 $.courierLoginLogUtils.submit={
-    addcourierLoginLog:function(){
-        if($('#addcourierLoginLogForm').valid()){
-            $.utils.submit('/courierLoginLog/insert', '#addcourierLoginLogForm', '#addcourierLoginLogDialog', '新增出错~', null, '#courierLoginLogTable', null, '新增成功~');
+    addCourierLoginLog:function(){
+        if($('#addCourierLoginLogForm').valid()){
+            $.utils.submit('/courierLoginLog/insert', '#addCourierLoginLogForm', '#addCourierLoginLogDialog', '新增出错~', null, '#courierLoginLogTable', null, '新增成功~');
         }
     },
-    updatecourierLoginLog:function(){
-        if($('#updatecourierLoginLogForm').valid()){
-            $.utils.submit('/courierLoginLog/updateByPrimaryKeySelective', '#updatecourierLoginLogForm', '#updatecourierLoginLogDialog', '修改出错~', null, '#courierLoginLogTable', null, '修改成功~');
+    updateCourierLoginLog:function(){
+        if($('#updateCourierLoginLogForm').valid()){
+            $.utils.submit('/courierLoginLog/updateByPrimaryKeySelective', '#updateCourierLoginLogForm', '#updateCourierLoginLogDialog', '修改出错~', null, '#courierLoginLogTable', null, '修改成功~');
         }
     },
     deleteByPrimaryKey:function() {
-        $.utils.submit('/courierLoginLog/deleteByPrimaryKey', '#deletecourierLoginLogForm', '#deletecourierLoginLogDialog', '修改出错~', null, '#courierLoginLogTable', null, '修改成功~');
+        $.utils.submit('/courierLoginLog/deleteByPrimaryKey', '#deleteCourierLoginLogForm', '#deleteCourierLoginLogDialog', '修改出错~', null, '#courierLoginLogTable', null, '修改成功~');
     },
     search:function(){
 

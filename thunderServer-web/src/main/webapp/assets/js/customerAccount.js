@@ -37,7 +37,7 @@ $.customerAccountUtils={
         },
         initValid:function(){
 
-            $('#addcustomerAccountForm').validate({
+            $('#addCustomerAccountForm').validate({
                 rules:{
 
 
@@ -70,7 +70,7 @@ $.customerAccountUtils={
 
 
 
-            $('#updatecustomerAccountForm').validate({
+            $('#updateCustomerAccountForm').validate({
             rules:{
 
                     name : "required",
@@ -113,13 +113,13 @@ $.customerAccountUtils={
 $.customerAccountUtils.button={
     add:function(){
 
-        $('#addcustomerAccountForm div').removeClass('has-error');
+        $('#addCustomerAccountForm div').removeClass('has-error');
 
-        $('#addcustomerAccountForm').validate().resetForm();
+        $('#addCustomerAccountForm').validate().resetForm();
 
-        $('#addcustomerAccountForm')[0].reset();
+        $('#addCustomerAccountForm')[0].reset();
 
-        $('#addcustomerAccountDialog').modal('show');
+        $('#addCustomerAccountDialog').modal('show');
     },
     deleteByPrimaryKey:function(
             id
@@ -127,7 +127,7 @@ $.customerAccountUtils.button={
 
         $("#idForDel").val(id);
 
-        $('#deletecustomerAccountDialog').modal('show');
+        $('#deleteCustomerAccountDialog').modal('show');
 
     },
     updateById:function(
@@ -145,15 +145,15 @@ $.customerAccountUtils.button={
               //  } else {
                     var data= $.utils.objToJson(response);
 
-                    $('#updatecustomerAccountForm div').removeClass('has-error');
+                    $('#updateCustomerAccountForm div').removeClass('has-error');
 
-                    $('#updatecustomerAccountForm').validate().resetForm();
+                    $('#updateCustomerAccountForm').validate().resetForm();
 
-                    $('#updatecustomerAccountForm')[0].reset();
+                    $('#updateCustomerAccountForm')[0].reset();
 
-                    $('#updatecustomerAccountForm').fill(JSON.parse(data));
+                    $('#updateCustomerAccountForm').fill(JSON.parse(data));
 
-                    $('#updatecustomerAccountDialog').modal('show');
+                    $('#updateCustomerAccountDialog').modal('show');
                 //}
             }
         });
@@ -167,7 +167,7 @@ $.customerAccountUtils.button={
             return;
         }
 
-        $("#batchcustomerAccountDialog").modal("show");
+        $("#batchCustomerAccountDialog").modal("show");
 
     },
     selectByPrimaryKey:function(
@@ -181,11 +181,11 @@ $.customerAccountUtils.button={
             success: function (response) {
                     var data= $.utils.objToJson(response);
 
-                    $('#showcustomerAccountForm')[0].reset();
+                    $('#showCustomerAccountForm')[0].reset();
 
-                    $('#showcustomerAccountForm').fill(JSON.parse(data));
+                    $('#showCustomerAccountForm').fill(JSON.parse(data));
 
-                    $('#showcustomerAccountDialog').modal('show');
+                    $('#showCustomerAccountDialog').modal('show');
 
             }
         });
@@ -195,21 +195,21 @@ $.customerAccountUtils.button={
 
 /**
  * 所有直接通过操作与后台进行交互的方法
- * @type {{addcustomerAccount: $.customerAccountUtils.submit.addcustomerAccount, updateABC: $.customerAccountUtils.submit.updatecustomerAccount, deleteById: $.customerAccountUtils.submit.deleteById, search: $.customerAccountUtils.submit.search, batch: $.customerAccountUtils.submit.batch}}
+ * @type {{addCustomerAccount: $.customerAccountUtils.submit.addCustomerAccount, updateABC: $.customerAccountUtils.submit.updateCustomerAccount, deleteById: $.customerAccountUtils.submit.deleteById, search: $.customerAccountUtils.submit.search, batch: $.customerAccountUtils.submit.batch}}
  */
 $.customerAccountUtils.submit={
-    addcustomerAccount:function(){
-        if($('#addcustomerAccountForm').valid()){
-            $.utils.submit('/customerAccount/insert', '#addcustomerAccountForm', '#addcustomerAccountDialog', '新增出错~', null, '#customerAccountTable', null, '新增成功~');
+    addCustomerAccount:function(){
+        if($('#addCustomerAccountForm').valid()){
+            $.utils.submit('/customerAccount/insert', '#addCustomerAccountForm', '#addCustomerAccountDialog', '新增出错~', null, '#customerAccountTable', null, '新增成功~');
         }
     },
-    updatecustomerAccount:function(){
-        if($('#updatecustomerAccountForm').valid()){
-            $.utils.submit('/customerAccount/updateByPrimaryKeySelective', '#updatecustomerAccountForm', '#updatecustomerAccountDialog', '修改出错~', null, '#customerAccountTable', null, '修改成功~');
+    updateCustomerAccount:function(){
+        if($('#updateCustomerAccountForm').valid()){
+            $.utils.submit('/customerAccount/updateByPrimaryKeySelective', '#updateCustomerAccountForm', '#updateCustomerAccountDialog', '修改出错~', null, '#customerAccountTable', null, '修改成功~');
         }
     },
     deleteByPrimaryKey:function() {
-        $.utils.submit('/customerAccount/deleteByPrimaryKey', '#deletecustomerAccountForm', '#deletecustomerAccountDialog', '修改出错~', null, '#customerAccountTable', null, '修改成功~');
+        $.utils.submit('/customerAccount/deleteByPrimaryKey', '#deleteCustomerAccountForm', '#deleteCustomerAccountDialog', '修改出错~', null, '#customerAccountTable', null, '修改成功~');
     },
     search:function(){
 

@@ -37,7 +37,7 @@ $.courierAccountUtils={
         },
         initValid:function(){
 
-            $('#addcourierAccountForm').validate({
+            $('#addCourierAccountForm').validate({
                 rules:{
 
 
@@ -77,7 +77,7 @@ $.courierAccountUtils={
 
 
 
-            $('#updatecourierAccountForm').validate({
+            $('#updateCourierAccountForm').validate({
             rules:{
 
                     name : "required",
@@ -127,13 +127,13 @@ $.courierAccountUtils={
 $.courierAccountUtils.button={
     add:function(){
 
-        $('#addcourierAccountForm div').removeClass('has-error');
+        $('#addCourierAccountForm div').removeClass('has-error');
 
-        $('#addcourierAccountForm').validate().resetForm();
+        $('#addCourierAccountForm').validate().resetForm();
 
-        $('#addcourierAccountForm')[0].reset();
+        $('#addCourierAccountForm')[0].reset();
 
-        $('#addcourierAccountDialog').modal('show');
+        $('#addCourierAccountDialog').modal('show');
     },
     deleteByPrimaryKey:function(
             id
@@ -141,7 +141,7 @@ $.courierAccountUtils.button={
 
         $("#idForDel").val(id);
 
-        $('#deletecourierAccountDialog').modal('show');
+        $('#deleteCourierAccountDialog').modal('show');
 
     },
     updateById:function(
@@ -159,15 +159,15 @@ $.courierAccountUtils.button={
               //  } else {
                     var data= $.utils.objToJson(response);
 
-                    $('#updatecourierAccountForm div').removeClass('has-error');
+                    $('#updateCourierAccountForm div').removeClass('has-error');
 
-                    $('#updatecourierAccountForm').validate().resetForm();
+                    $('#updateCourierAccountForm').validate().resetForm();
 
-                    $('#updatecourierAccountForm')[0].reset();
+                    $('#updateCourierAccountForm')[0].reset();
 
-                    $('#updatecourierAccountForm').fill(JSON.parse(data));
+                    $('#updateCourierAccountForm').fill(JSON.parse(data));
 
-                    $('#updatecourierAccountDialog').modal('show');
+                    $('#updateCourierAccountDialog').modal('show');
                 //}
             }
         });
@@ -181,7 +181,7 @@ $.courierAccountUtils.button={
             return;
         }
 
-        $("#batchcourierAccountDialog").modal("show");
+        $("#batchCourierAccountDialog").modal("show");
 
     },
     selectByPrimaryKey:function(
@@ -195,11 +195,11 @@ $.courierAccountUtils.button={
             success: function (response) {
                     var data= $.utils.objToJson(response);
 
-                    $('#showcourierAccountForm')[0].reset();
+                    $('#showCourierAccountForm')[0].reset();
 
-                    $('#showcourierAccountForm').fill(JSON.parse(data));
+                    $('#showCourierAccountForm').fill(JSON.parse(data));
 
-                    $('#showcourierAccountDialog').modal('show');
+                    $('#showCourierAccountDialog').modal('show');
 
             }
         });
@@ -209,21 +209,21 @@ $.courierAccountUtils.button={
 
 /**
  * 所有直接通过操作与后台进行交互的方法
- * @type {{addcourierAccount: $.courierAccountUtils.submit.addcourierAccount, updateABC: $.courierAccountUtils.submit.updatecourierAccount, deleteById: $.courierAccountUtils.submit.deleteById, search: $.courierAccountUtils.submit.search, batch: $.courierAccountUtils.submit.batch}}
+ * @type {{addCourierAccount: $.courierAccountUtils.submit.addCourierAccount, updateABC: $.courierAccountUtils.submit.updateCourierAccount, deleteById: $.courierAccountUtils.submit.deleteById, search: $.courierAccountUtils.submit.search, batch: $.courierAccountUtils.submit.batch}}
  */
 $.courierAccountUtils.submit={
-    addcourierAccount:function(){
-        if($('#addcourierAccountForm').valid()){
-            $.utils.submit('/courierAccount/insert', '#addcourierAccountForm', '#addcourierAccountDialog', '新增出错~', null, '#courierAccountTable', null, '新增成功~');
+    addCourierAccount:function(){
+        if($('#addCourierAccountForm').valid()){
+            $.utils.submit('/courierAccount/insert', '#addCourierAccountForm', '#addCourierAccountDialog', '新增出错~', null, '#courierAccountTable', null, '新增成功~');
         }
     },
-    updatecourierAccount:function(){
-        if($('#updatecourierAccountForm').valid()){
-            $.utils.submit('/courierAccount/updateByPrimaryKeySelective', '#updatecourierAccountForm', '#updatecourierAccountDialog', '修改出错~', null, '#courierAccountTable', null, '修改成功~');
+    updateCourierAccount:function(){
+        if($('#updateCourierAccountForm').valid()){
+            $.utils.submit('/courierAccount/updateByPrimaryKeySelective', '#updateCourierAccountForm', '#updateCourierAccountDialog', '修改出错~', null, '#courierAccountTable', null, '修改成功~');
         }
     },
     deleteByPrimaryKey:function() {
-        $.utils.submit('/courierAccount/deleteByPrimaryKey', '#deletecourierAccountForm', '#deletecourierAccountDialog', '修改出错~', null, '#courierAccountTable', null, '修改成功~');
+        $.utils.submit('/courierAccount/deleteByPrimaryKey', '#deleteCourierAccountForm', '#deleteCourierAccountDialog', '修改出错~', null, '#courierAccountTable', null, '修改成功~');
     },
     search:function(){
 
